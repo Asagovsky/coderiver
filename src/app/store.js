@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import rateReducer, { getExchangeRate } from '../features/exchange/exchangeSlice'
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    exchangeRate: rateReducer
   },
 });
+
+store.dispatch(getExchangeRate());
